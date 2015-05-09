@@ -8,6 +8,8 @@ BASICS OF FUNCTIONS
 Let's start with the basics, a function is a reusable block of code that does something
 We generally use functions for actions we might need more than once
 
+
+
 The easiest dumbest functions don't expect things (parameters) and give no things back
 The way we call the most easy function is just it's function name followed by parentheses
 Example:
@@ -22,6 +24,8 @@ Example:
     func doTheKnockKnock() {
         knockknock()
     }
+
+
 Of course this example doesn't make any sense but just to show how that would work.
 
 
@@ -62,11 +66,34 @@ Final note: don't be afraid to have long function names, they'll help you in big
 // Create a function knockknock that just prints the line "Who's there?"
 // This function has no parameters nor a return value
 
+func knockknock () {
+    println("who's there?")
+}
+
+//knockknock()
+
 
 // That was fun! Let's joke around and knock a few times more
+
+//knockknock()
+//knockknock()
+//knockknock()
+
 // Write a function knockMultipleTimes that accepts one paramter
 // That parameter will be an int that let's us specify how many times we want to knock
 // Within the function we have a loop that runs x ammount of times that calls the knock knock function
+
+func knockMultipleTimes(timesknocked: Int) {
+    for(var i=0;i<timesknocked;i++){        knockknock()
+    }
+}
+
+knockMultipleTimes(9)
+
+
+
+
+
 
 
 // HAHAHA, okay let's answer before the person behind the door goes nuts!
@@ -75,11 +102,38 @@ Final note: don't be afraid to have long function names, they'll help you in big
 // The function will just print "It's me, {firstname}, from {homeCountry}"
 
 
+func replyWhoIshere (firstname:String, homeCountry:String) {
+    println("It's me, \(firstname), from \(homeCountry)")
+}
+
+replyWhoIshere("rajan", "india")
+
+replyWhoIshere("Angel", "DR")
+
+
+
+
 // Cool that worked! Let's say we want to reply with our age instead of home country!
 // We'll create a function calculateAge that accepts one parameter that will be yearOfBirth (Int)
 // The function will return the age (Int)
 // Use this code to do the calculation, don't worry about the code itself for now if you don't want to
 // Just copy and paste it in your function
+
+
+func calculateAge(yearOfBirth: Int) ->Int {
+    let currentDate = NSDate()
+    let currentCalendar = NSCalendar.currentCalendar()
+    let currentYear = currentCalendar.component(NSCalendarUnit.CalendarUnitYear, fromDate: currentDate)
+    let age = currentYear - yearOfBirth
+    return age
+}
+
+calculateAge(1985)
+
+
+
+
+
 /*
 let currentDate = NSDate()
 let currentCalendar = NSCalendar.currentCalendar()
@@ -95,10 +149,44 @@ let age = currentYear - yearOfBirth
 // After that you will print a line that states "{name}, my age is {age}", where {age} is the var of course!
 
 
+func tellNameAndAge (name:String, yearOfBirth:Int) {
+    var age = calculateAge(yearOfBirth)
+    println("\(name), my age is \(age)")
+    
+}
+
+tellNameAndAge("Rajan", 1985)
+
+
+
+
+
+
+
+
 // Call knock knock
+
+knockknock()
+
+
 
 // Call knockMultipleTimes
 
+knockMultipleTimes(40)
+
+
 // Call replyWhoIsHere
 
+replyWhoIshere("rajan", "India")
+
+
+
 // Call tellNameAndAge
+
+
+tellNameAndAge("claudia", 1991)
+
+
+
+
+
